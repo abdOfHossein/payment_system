@@ -1,9 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsOptional } from 'class-validator';
-import {
-  IsNotEmpty,
-  IsString,
-} from 'class-validator/types/decorator/decorators';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class SaveInfoFeedbackDto {
   @IsString()

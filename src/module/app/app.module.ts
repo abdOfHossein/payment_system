@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { SupportFeedbackModule } from './module/support-feedback/support-feedback.module';
+import { AppController } from './controller/app.controller';
+import { AppService } from './services/app.service';
+import { SupportFeedbackModule } from '../support-feedback/support-feedback.module';
 
 @Module({
   imports: [

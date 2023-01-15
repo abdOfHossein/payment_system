@@ -1,14 +1,22 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Body, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { SaveInfoFeedbackDto } from '../dto/save-info.dto';
 import { SupportFeedbackService } from '../services/support-feedback.service';
 
-@Controller()
+@ApiTags('SupportFeedback')
+@Controller('SupportFeedback')
 export class SupportFeedbackController {
   constructor(
     private readonly supportFeedbackService: SupportFeedbackService,
   ) {}
 
-  @Get()
-   getAll(){
-    return this.supportFeedbackService.getAll() 
+  @Get('/all')
+  getAll() {
+    return this.supportFeedbackService.getAll();
+  }
+
+  @Post('saveInfo')
+  saveInfo(@Body() saveInfoFeedbackDto: SaveInfoFeedbackDto) {
+    return this.supportFeedbackService.saveInfo(saveInfoFeedbackDto);
   }
 }
