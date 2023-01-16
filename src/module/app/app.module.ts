@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { AppController } from './controller/app.controller';
 import { AppService } from './services/app.service';
-import { SupportFeedbackModule } from '../support-feedback/support-feedback.module';
+import { PaymentSystemModule } from '../support-feedback/payment-system.module';
 
 @Module({
   imports: [
@@ -25,7 +25,7 @@ import { SupportFeedbackModule } from '../support-feedback/support-feedback.modu
         return dataSource;
       },
     }),
-    SupportFeedbackModule,
+    PaymentSystemModule,
   ],
   controllers: [AppController],
   providers: [AppService],
