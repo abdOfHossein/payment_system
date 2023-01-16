@@ -1,6 +1,7 @@
 import { Controller, Get, Body, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { SaveInfoFeedbackDto } from '../dto/save-info.dto';
+import { SupportFeedbackPageDto } from '../pagination/support-feedback.page.dto';
 import { SupportFeedbackService } from '../services/support-feedback.service';
 
 @ApiTags('SupportFeedback')
@@ -10,9 +11,9 @@ export class SupportFeedbackController {
     private readonly supportFeedbackService: SupportFeedbackService,
   ) {}
 
-  @Get('/all')
-  getAll() {
-    return this.supportFeedbackService.getAll();
+  @Post('/getAll/page')
+  getAll(@Body() supportFeedbackPageDto:SupportFeedbackPageDto) {
+    return this.supportFeedbackService.getAll(supportFeedbackPageDto);
   }
 
   @Post('saveInfo')

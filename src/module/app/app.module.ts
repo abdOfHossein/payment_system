@@ -12,12 +12,13 @@ import { SupportFeedbackModule } from '../support-feedback/support-feedback.modu
         type: 'postgres',
         host: '127.0.0.1',
         port: 5432,
-        database: 'task',
+        database: 'mos_project',
         username: 'postgres',
         password: '774936188',
         entities: ['dist/**/*.entity.js', '**/*.entity.js'],
         migrations: ['dist/migrations/*{.ts,.js}'],
         synchronize: true,
+        autoLoadEntities: true,
       }),
       dataSourceFactory: async (options) => {
         const dataSource = await new DataSource(options).initialize();
